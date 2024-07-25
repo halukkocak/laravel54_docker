@@ -6,7 +6,7 @@ You must complete the following steps carefully.
 ### 1 ) Folder layouts ; 
     -- projectFiles (Copy laravel project files here)
     -- mysqlDb (When you import the database with any interface, you can see the MySQL files here.)
-### 2 ) Prepare your project; 
+### 2 ) Prepare your project ; 
     # Copy the laravel files to the projectFiles folder.
     # Update the following settings in your .env file;
         * DB_HOST=mysqlDb
@@ -14,15 +14,15 @@ You must complete the following steps carefully.
         * DB_DATABASE=laravel_db
         * DB_USERNAME=laravel
         * DB_PASSWORD=laravel
-    # Add this line in config object of composer.json file (VERY IMPORTANT);
+    # Add this line in "config" object of composer.json file (VERY IMPORTANT =>  "config" object inside of the composer.json file );
         * "platform-check": false, 
-    # Remove all files inside the bootstrap/cache folder.
+    # Remove all files inside the bootstrap/cache folder. (IMPORTANT don't remove the cache folder, just delete its contents.)
 ### 2 ) Docker ; 
-    # Open terminal inside main directory ( not laravel directory).
+    # Open terminal inside main directory ( not projectFiles directory).
     # Run the following command in terminal;
-        * docker-compose up -d
+        * docker compose up -d
 ### 3 ) MySQL connection ; 
-    # Connect to the database using a MySQL interface. Forexample (DbGate Database Client)
+    # Connect to the database using a MySQL interface. Any Database Clients: DbGate  , Dbeaver, Navicat etc.
     # Connect your db with below settings;
         * Server => localhost
         * Port => 3309 (Not 3306)
@@ -30,12 +30,12 @@ You must complete the following steps carefully.
         * Username => laravel
         * Password => laravel
     # Import your project database.
-### 4 ) Composer; 
+### 4 ) Composer ; 
     # Connect shell the laravel54_docker project.
     # Run the following commands;
         * php artisan cache:clear
         * php artisan config:clear
         * composer dump-autoload
-### 5 ) Final; 
+### 5 ) Final ; 
     # Open the link below in your browser
         * http://localhost:5001
