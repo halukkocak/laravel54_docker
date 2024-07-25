@@ -1,0 +1,31 @@
+version: '3'
+services:
+  php:
+    depends_on:
+      - mysqlDb
+    build: .
+    volumes:
+      - ./projectFiles:/var/www/html
+    ports:
+      - "5001:80"
+    restart: always
+    networks:
+            - localmachine
+  mysqlDb:
+    platform: linux/x86_64
+    image: mysql:5.5
+    volumes:
+      - ./mysqlDb:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "laravel"
+      MYSQL_DATABASE: "laravel_db"
+      MYSQL_USER: "laravel"
+      MYSQL_PASSWORD: "laravel"
+    ports: 
+            - "3309:3306"
+    networks:
+            - localmachine
+networks:
+    localmachine:
+        driver: bridge
